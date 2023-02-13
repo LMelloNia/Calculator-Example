@@ -39,10 +39,12 @@
                                     <constraint firstAttribute="width" constant="362" id="kjY-w7-cTM"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXs-m1-x3U">
-                                <rect key="frame" x="175" y="314" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXs-m1-x3U">
+                                <rect key="frame" x="171.66666666666666" y="314" width="50" height="20.333333333333314"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="ODq-1e-nyy"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,8 +63,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                         <constraints>
+                            <constraint firstItem="CXs-m1-x3U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Vk-eL-0Jo"/>
                             <constraint firstItem="M7s-Vz-LmQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G9s-fj-u3W"/>
                             <constraint firstItem="Nql-Fh-9Y6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JZM-rd-ex8"/>
+                            <constraint firstItem="CXs-m1-x3U" firstAttribute="top" secondItem="M7s-Vz-LmQ" secondAttribute="bottom" constant="71" id="TFZ-pS-Vqh"/>
                             <constraint firstItem="Nql-Fh-9Y6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kyS-tm-H3E"/>
                             <constraint firstItem="M7s-Vz-LmQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="ohJ-vT-DmN"/>
                         </constraints>
