@@ -13,6 +13,7 @@
 		DDBBFFA8299A613700DD014E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBFFA6299A613700DD014E /* Main.storyboard */; };
 		DDBBFFAA299A613900DD014E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDBBFFA9299A613900DD014E /* Assets.xcassets */; };
 		DDBBFFAD299A613900DD014E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDBBFFAB299A613900DD014E /* LaunchScreen.storyboard */; };
+		DDE9B9C5299B7A61005595B9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE9B9C4299B7A61005595B9 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DDBBFFA9299A613900DD014E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDBBFFAC299A613900DD014E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDBBFFAE299A613900DD014E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE9B9C4299B7A61005595B9 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				DDBBFFA0299A613700DD014E /* AppDelegate.swift */,
 				DDBBFFA2299A613700DD014E /* SceneDelegate.swift */,
 				DDBBFFA4299A613700DD014E /* ViewController.swift */,
+				DDE9B9C4299B7A61005595B9 /* CustomCell.swift */,
 				DDBBFFA6299A613700DD014E /* Main.storyboard */,
 				DDBBFFA9299A613900DD014E /* Assets.xcassets */,
 				DDBBFFAB299A613900DD014E /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				DDBBFFA5299A613700DD014E /* ViewController.swift in Sources */,
 				DDBBFFA1299A613700DD014E /* AppDelegate.swift in Sources */,
+				DDE9B9C5299B7A61005595B9 /* CustomCell.swift in Sources */,
 				DDBBFFA3299A613700DD014E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

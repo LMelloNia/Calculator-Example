@@ -14,19 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var operatorTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var calculateButton: UIButton!
+    @IBOutlet weak var calculatorHistoryTableView: UITableView!
+    
+    var calculatorHistorys: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstNumberTextField.delegate = self
-        secondNumberTextField.delegate = self
-        operatorTextField.delegate = self
+        calculatorHistoryTableView.delegate = self
+        calculatorHistoryTableView.dataSource = self
     }
     
     @IBAction func calculate(_ sender: UIButton) {
         
-        let firstNum = Double(firstNumberTextField.text!)
-        let secondNum = Double(secondNumberTextField.text!)
+        let firstNum = Double(firstNumberTextField.text ?? "")
+        let secondNum = Double(secondNumberTextField.text ?? "")
         
         if sender.currentTitle == "Reset" {
             
@@ -37,51 +39,50 @@ class ViewController: UIViewController {
             sender.setTitle("Calculate", for: .normal)
             
         } else if let x = firstNum ,let y = secondNum ,
-                 let z = operatorTextField.text{
+                  let z = operatorTextField.text{
             switch z {
-                case "+":
-                    resultLabel.text = String(x + y)
+            case "+":
+                resultLabel.text = String(x + y)
                 sender.setTitle("Reset", for: .normal)
-                case "-":
-                    resultLabel.text = String(x - y)
+                calculatorHistorys.append("\(x) \(z) \(y) = \(x+y)")
+            case "-":
+                resultLabel.text = String(x - y)
                 sender.setTitle("Reset", for: .normal)
-                case "*":
-                    resultLabel.text = String(x * y)
+                calculatorHistorys.append("\(x) \(z) \(y) = \(x-y)")
+            case "*":
+                resultLabel.text = String(x * y)
                 sender.setTitle("Reset", for: .normal)
-                case "/":
-                    resultLabel.text = String(x / y)
+                calculatorHistorys.append("\(x) \(z) \(y) = \(x*y)")
+            case "/":
+                resultLabel.text = String(x / y)
                 sender.setTitle("Reset", for: .normal)
-                default:
-                    break
-                }
+                calculatorHistorys.append("\(x) \(z) \(y) = \(x/y)")
+            default:
+                break
             }
         }
-    //버튼 한번 = 계산 버튼 두번 =리셋
-    //사칙연산 좌 중 우 (1 + 1)
-    //계산값 Label에 표시
-    // + 계산 히스토리
-    // 2/14
+        
+        calculatorHistoryTableView.reloadData()
+    }
+    
+    @IBAction func calculatorHistoryReset(_ sender: UIButton) {
+        calculatorHistorys = []
+        calculatorHistoryTableView.reloadData()
+    }
 }
 
-extension ViewController: UITextFieldDelegate{
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if firstNumberTextField.text != ""
-            && operatorTextField.text == "" {
-            firstNumberTextField.resignFirstResponder()
-            operatorTextField.becomeFirstResponder()
-        }
-        else if firstNumberTextField.text != ""
-                    && operatorTextField.text != ""{
-            firstNumberTextField.resignFirstResponder()
-            secondNumberTextField.becomeFirstResponder()
-        }
-        return true
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        return calculatorHistorys.count
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        firstNumberTextField.resignFirstResponder()
-        operatorTextField.resignFirstResponder()
-        secondNumberTextField.resignFirstResponder()
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "customCell", for: indexPath) as! CustomCell
+        cell.calculatorHistoryLabel.text = calculatorHistorys[indexPath.row]
+        return cell
     }
+    
 }
